@@ -1,0 +1,41 @@
+---
+title       : Developing Data Products
+subtitle    : K means clusters of mtcars data
+author      : Sean Jackson
+job         : Analyst
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Project Overview
+The goal of the project is to create and deploy a shiny app as well as this associated slidify presentation. It is intended for the project to be as simple as possible so as to show proof of concept. The application uses k means clustering on a common data set and allows the user to adjust the measured inputs as well as number of clusters.
+
+--- .class #id 
+
+## Data Source
+mtcars is the source data set for the analysis
+
+This data was provided by motor trend magazine contains 11 variables for 32 vehicles
+
+```{r, echo=TRUE}
+head(mtcars)
+```
+
+--- .class #id
+
+## ui.r
+server.r is seperated into the main panel and sidebar components
+
+The sidebar takes in the user defined inputs of the columns analyzed as well as the number of clusters to create
+
+The main panel displays the plot returned from the server.r calculation based on the sidebar inputs
+
+--- .class #id
+
+## server.r
+server.r takes in the user defined inputs from the sidebar, calculates the correct number of clusters as well as their center then returns a plot of the ouput to ui.r main panel
+
